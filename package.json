@@ -1,0 +1,32 @@
+{
+  "name": "leancloud-backup-data-module",
+  "version": "0.1.0",
+  "description": "Module for leancloud auto backup script, using cronjob & leancloud restful api",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsu710785/leancloud-backup-data-module.git"
+  },
+  "keywords": [
+    "leancloud",
+    "export",
+    "cron",
+    "cronjob",
+    "backup"
+  ],
+  "author": "Benson Chang <hypersonic5421@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "node-cron": "^1.1.3",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "sleep": "^5.1.0"
+  },
+  "bugs": {
+    "url": "https://github.com/tsu710785/leancloud-backup-data-module/issues"
+  },
+  "homepage": "https://github.com/tsu710785/leancloud-backup-data-module#readme"
+}

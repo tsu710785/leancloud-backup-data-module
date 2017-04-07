@@ -20,7 +20,7 @@ const config = {
   leancloudKey: 'leancloud_master_key' + ', master',
   email: 'yourEmail'
 }
-const DOWNLOAD_PATH = './backup/folder'
+const DOWNLOAD_PATH = './backup/folder/'
 const isUS = true // is leancloud us or not 
 
 backupModule(CronStatement, config, DOWNLOAD_PATH, isUS);

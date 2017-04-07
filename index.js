@@ -41,7 +41,8 @@ const getDownloadLink = function (config, id, downloadPath, isUS) {
     });
   });
 }
-const exportOptions = function(config, isUS) {
+
+const exportOptions = function(config,isUS) {
   const options = {
     method: 'POST',
     headers: {
@@ -67,31 +68,27 @@ const queryOptions = function(config, id, isUS){
 }
 
 const mainCron = function (cronString, config, downloadPath, isUS) {
-  console.log('in main cron', cronString);
   cron.schedule(cronString, function () {
-    console.log('log---');
+
+    console.log('Cronjob Start');
+    console.log(exportOptions(config, isUS));
+    req(exportOptions(config, isUS)).then(function (body) {
+      console.log('App Id: ', config.leancloudId);
+      console.log('Task Id: ', body.id);
+      console.log('Status: ', body.status);
+      const taskId = body.id;
+      console.log('waiting leancloud export data...');
+      sleep.sleep(1200);
+      return getDownloadLink(config, id, downloadPath, isUS);
+    }).then(function (file) {
+      console.log('App Id: ', config.leancloudId);
+      console.log('Task Id: ', body.id);
+      console.log('Status: ', 'done');
+    }).catch(function (err) {
+      console.error(err);
+    });
+
   });
-  // cron.schedule(cronString, function () {
-
-  //   console.log('Cronjob Start');
-
-  //   req(exportOptions(config, isUS)).then(function (body) {
-  //     console.log('App Id: ', leancloudId);
-  //     console.log('Task Id: ', body.id);
-  //     console.log('Status: ', body.status);
-  //     const taskId = body.id;
-  //     console.log('waiting leancloud export data...');
-  //     sleep.sleep(1200);
-  //     return getDownloadLink(config, id, downloadPath, isUS);
-  //   }).then(function (file) {
-  //     console.log('App Id: ', leancloudId);
-  //     console.log('Task Id: ', body.id);
-  //     console.log('Status: ', 'done');
-  //   }).catch(function (err) {
-  //     console.error(err);
-  //   });
-
-  // });
 }
 
 

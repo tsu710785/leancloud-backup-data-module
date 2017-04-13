@@ -1,6 +1,6 @@
 {
   "name": "leancloud-backup-data-module",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Module for leancloud auto backup script, using cronjob & leancloud restful api",
   "main": "index.js",
   "scripts": {

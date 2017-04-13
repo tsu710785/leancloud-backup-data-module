@@ -76,10 +76,9 @@ const mainCron = function (cronString, config, downloadPath, isUS) {
       console.log('App Id: ', config.leancloudId);
       console.log('Task Id: ', body.id);
       console.log('Status: ', body.status);
-      const taskId = body.id;
       console.log('waiting leancloud export data...');
       sleep.sleep(1200);
-      return getDownloadLink(config, id, downloadPath, isUS);
+      return getDownloadLink(config, body.id, downloadPath, isUS);
     }).then(function (file) {
       console.log('App Id: ', config.leancloudId);
       console.log('Task Id: ', body.id);

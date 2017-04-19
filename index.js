@@ -69,7 +69,6 @@ const queryOptions = function(config, id, isUS){
 
 const mainCron = function (cronString, config, downloadPath, isUS) {
   cron.schedule(cronString, function () {
-
     console.log('######Cronjob Start######');
     // console.log(exportOptions(config, isUS));
     req(exportOptions(config, isUS)).then(function (body) {
@@ -81,7 +80,6 @@ const mainCron = function (cronString, config, downloadPath, isUS) {
       return getDownloadLink(config, body.id, downloadPath, isUS);
     }).then(function (file) {
       console.log('App Id: ', config.leancloudId);
-      console.log('Task Id: ', body.id);
       console.log('Status: ', 'done');
     }).catch(function (err) {
       console.error(err);
